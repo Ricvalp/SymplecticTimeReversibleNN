@@ -1,2 +1,2 @@
 # SymplecticTimeReversibleNN
-Thesis Project Code
+### Time-reversible neural networks for learning Hamiltonian systems.
