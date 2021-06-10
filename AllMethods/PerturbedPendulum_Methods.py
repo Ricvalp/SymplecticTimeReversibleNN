@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import os
 
-def PerturbedHamiltonian_read(file_name1, file_name2):
+def read_dataset(file_name1, file_name2):
     
     file = open(file_name1, "r")
     line_count = 0
@@ -37,7 +37,7 @@ def PerturbedHamiltonian_read(file_name1, file_name2):
     return u0, T
 
 
-def plot_datase(u0, T):
+def plot_dataset(u0, T):
     
     plt.figure(figsize=(10,10))
     plt.rc('text', usetex=True)
@@ -53,7 +53,7 @@ def plot_datase(u0, T):
     plt.legend(fontsize = 25)
     plt.show()
     
-def training_dataset(u0, T, val_len, train_batch, val_batch):
+def train_dataset(u0, T, val_len, train_batch, val_batch):
     
     x_train = np.array(u0)
     x_train = x_train.astype(np.float32)
