@@ -10,8 +10,8 @@ sys.path.append("..")
 from AllMethods import ReversibleSymplecticNN as rs
 from AllMethods import PerturbedPendulum_Methods as pp
 
-#gpu_options = tf.compat.v1.GPUOptions(per_process_gpu_memory_fraction=0.3)
-#sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options))
+gpu_options = tf.compat.v1.GPUOptions(per_process_gpu_memory_fraction=0.3)
+sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options))
 
 
 
@@ -35,7 +35,7 @@ def scheduler(epoch, lr):
     if epoch < 5:
         return lr
     else:
-        return lr*tf.math.exp(-0.0002)
+        return lr*tf.math.exp(-0.0007)
     
 callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
 
@@ -118,7 +118,7 @@ model1N2.compile(
 
 
 
-Epochs = 10000
+Epochs = 3000
 
 history1R = model1R.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_1R], verbose=0)
 history2R = model2R.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_2R], verbose=0)

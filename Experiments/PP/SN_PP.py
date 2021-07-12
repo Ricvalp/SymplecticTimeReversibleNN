@@ -26,7 +26,7 @@ model1N = rs.SympNet(15, 8, 'non_reversible')
 model2N = rs.SympNet(40, 8, 'non_reversible')
 
 model1N2 = rs.SympNet(30, 8, 'non_reversible')
-#
+
 
 # DECAYING LEARNING RATE
 def scheduler(epoch, lr):
@@ -35,7 +35,7 @@ def scheduler(epoch, lr):
     if epoch < 5:
         return lr
     else:
-        return lr*tf.math.exp(-0.0002)
+        return lr*tf.math.exp(-0.0007)
     
 callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
 
@@ -118,7 +118,7 @@ model1N2.compile(
 
 
 
-Epochs = 10000
+Epochs = 3000
 
 history1R = model1R.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_1R], verbose=0)
 history2R = model2R.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_2R], verbose=0)

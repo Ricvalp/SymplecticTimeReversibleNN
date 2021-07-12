@@ -1,7 +1,5 @@
 import tensorflow as tf
 from tensorflow.keras import Model
-from tensorflow.keras.layers import Layer
-from tensorflow.keras.regularizers import l2
 import tensorflow_probability as tfp
 tfd = tfp.distributions
 tfb = tfp.bijectors
@@ -14,7 +12,6 @@ import os
 
 sys.path.append("..")
 
-from AllMethods import ReversibleSymplecticNN as rs
 from AllMethods import PerturbedPendulum_Methods as pp
 
 #gpu_options = tf.compat.v1.GPUOptions(per_process_gpu_memory_fraction=0.3)
