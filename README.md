@@ -2,7 +2,7 @@
 
 ### Time-reversible neural networks for learning (Hamiltonian) dynamical systems.
 
-### Four systems are used in the experiments: The Poincare' map of the Henon-Heiles Hamiltonian system for three different values of energy, the Poincare' map of the perturbed simple pendulum, and two 3-dimensional, systems that are not Hamiltonian but are reversible with respect to two different reversing symmetries. The repository contains three folders with the experiments, one with the results, and a folder with the methods used in the scripts.
+### Four systems are used in the experiments: The Poincare' map of the Henon-Heiles Hamiltonian system for three different values of energy, the Poincare' map of the perturbed simple pendulum, and two 3-dimensional systems that are not Hamiltonian but are reversible with respect to two different reversing symmetries. The repository contains three folders with the experiments, one with the results, and a folder with the methods used in the scripts.
 
 * **AllMethods**
 
