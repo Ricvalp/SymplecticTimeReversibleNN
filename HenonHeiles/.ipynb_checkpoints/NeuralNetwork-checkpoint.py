@@ -16,14 +16,13 @@ sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_opti
 #physical_devices = tf.config.list_physical_devices('GPU') 
 #tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
-
 Ename = "008333"
 
 #Import Data
 x, y = hh.read_dataset('x_train_'+ Ename +'.txt', 'y_train_'+ Ename +'.txt')
 
 #Training Data
-train_dataset, val_dataset = hh.train_dataset(x, y, 10000, 50000, 10000) #val_len, train_batch, val_batch
+train_dataset, val_dataset = hh.train_dataset(x, y, 50, 800, 50) #val_len, train_batch, val_batch
 
 
 #Models
@@ -88,8 +87,8 @@ class MyModel3(tf.keras.Model):
         return self.dense6(x)
     
 
-model1 = MyModel1()
-model2 = MyModel2()
+#model1 = MyModel1()
+#model2 = MyModel2()
 model3 = MyModel3()
 
 
@@ -108,23 +107,23 @@ callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
 
 
 #CHECKPOINT 1,2,3
-checkpoint_path_1 = "checkpoints_NN_HH_1/cp.ckpt"
-checkpoint_dir_1 = os.path.dirname(checkpoint_path_1)
+#checkpoint_path_1 = "checkpoints_NN_HH_1/cp.ckpt"
+#checkpoint_dir_1 = os.path.dirname(checkpoint_path_1)
 
-checkpoint_path_2 = "checkpoints_NN_HH_2/cp.ckpt"
-checkpoint_dir_2 = os.path.dirname(checkpoint_path_2)
+#checkpoint_path_2 = "checkpoints_NN_HH_2/cp.ckpt"
+#checkpoint_dir_2 = os.path.dirname(checkpoint_path_2)
 
 checkpoint_path_3 = "checkpoints_NN_HH_3/cp.ckpt"
 checkpoint_dir_3 = os.path.dirname(checkpoint_path_3)
 
 
 #Callbacks
-cp_callback_1 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_1,
+#cp_callback_1 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_1,
                                                  save_weights_only=True,
                                                  save_best_only=True,
                                                  verbose=0)
 #Callbacks
-cp_callback_2 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_2,
+#cp_callback_2 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_2,
                                                  save_weights_only=True,
                                                  save_best_only=True,
                                                  verbose=0)
@@ -134,17 +133,17 @@ cp_callback_3 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_3,
                                                  save_best_only=True,
                                                  verbose=0)
 
-model1.compile(
-    loss= tf.keras.losses.MeanSquaredError(),
-    optimizer=keras.optimizers.Adam(0.01), 
-    metrics=["accuracy"],
-)
+#model1.compile(
+#    loss= tf.keras.losses.MeanSquaredError(),
+#    optimizer=keras.optimizers.Adam(0.01), 
+#    metrics=["accuracy"],
+#)
 
-model2.compile(
-    loss= tf.keras.losses.MeanSquaredError(),
-    optimizer=keras.optimizers.Adam(0.01), 
-    metrics=["accuracy"],
-)
+#model2.compile(
+#    loss= tf.keras.losses.MeanSquaredError(),
+#    optimizer=keras.optimizers.Adam(0.01), 
+#    metrics=["accuracy"],
+#)
 
 model3.compile(
     loss= tf.keras.losses.MeanSquaredError(),
@@ -154,8 +153,8 @@ model3.compile(
 
 Epochs = 10000
 
-history1 = model1.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_1], verbose=0)
-history2 = model2.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_2], verbose=0)
+#history1 = model1.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_1], verbose=0)
+#history2 = model2.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_2], verbose=0)
 history3 = model3.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_3], verbose=0)
 
 
@@ -165,16 +164,16 @@ history3 = model3.fit(train_dataset, epochs = Epochs, validation_data=val_datase
 plt.figure(figsize = (13,6))
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
-plt.title(r'Unstructured Neural Networks', fontsize = 30)
+plt.title(r'Feedforward Neural Network', fontsize = 30)
 
-plt.plot(history1.history["loss"], label="Training loss $\mathbf{H}_{4}^{10}$")
-plt.plot(history1.history["val_loss"], label="Validation loss $\mathbf{H}_{4}^{10}$")
+#plt.plot(history1.history["loss"], label="Training loss $\mathbf{H}_{4}^{10}$")
+#plt.plot(history1.history["val_loss"], label="Validation loss $\mathbf{H}_{4}^{10}$")
 
-plt.plot(history2.history["loss"], label="Training loss $\mathbf{H}_{5}^{20}$")
-plt.plot(history2.history["val_loss"], label="Validation loss $\mathbf{H}_{5}^{20}$")
+#plt.plot(history2.history["loss"], label="Training loss $\mathbf{H}_{5}^{20}$")
+#plt.plot(history2.history["val_loss"], label="Validation loss $\mathbf{H}_{5}^{20}$")
 
-plt.plot(history3.history["loss"], label="Training loss $\mathbf{H}_{6}^{30}$")
-plt.plot(history3.history["val_loss"], label="Validation loss $\mathbf{H}_{6}^{30}$")
+plt.plot(history3.history["loss"], label="Training loss $\mathbf{H}'_{NN}'$")
+plt.plot(history3.history["val_loss"], label="Validation loss $\mathbf{H}'_{NN}$")
 
 plt.xlabel(r'Epoch', fontsize=20)
 plt.ylabel(r'Loss', fontsize=20)
@@ -190,9 +189,9 @@ plt.savefig("Loss_NN_HH")
 
 N = 300
 x0 = np.array([[rd.randrange(100, 400, 1)*0.001, rd.randrange(-100, 100, 1)*0.001] for _ in range(N)])
-iterations = [model2(x0)]
+iterations = [model3(x0)]
 for _ in range(200):
-    iterations.append(model2(iterations[-1]))
+    iterations.append(model3(iterations[-1]))
     
 plt.figure(figsize=(10,10))
 plt.rc('text', usetex=True)
@@ -234,14 +233,14 @@ plt.show()
 
 x0 = np.array([[rd.randrange(300, 400, 1)*0.001, rd.randrange(50, 100, 1)*0.001] for _ in range(100)])
 
-f_iterations = [model2(x0)]
+f_iterations = [model3(x0)]
 for _ in range(100):
-    f_iterations.append(model2(f_iterations[-1]))
+    f_iterations.append(model3(f_iterations[-1]))
 
 b_iterations = [f_iterations[-1]*np.array([[1., -1.]])]
 
 for _ in range(100):
-    b_iterations.append(model2(b_iterations[-1]))
+    b_iterations.append(model3(b_iterations[-1]))
 
 plt.figure(figsize=(10,10))
 plt.rc('text', usetex=True)
@@ -292,36 +291,39 @@ N_predictions = 1000
 x0 = np.array([[0.1, 0.0],[0.2, 0.0],[0.4, 0.0],[0.0, 0.05], [0.0, 0.1]])
     
 
-iterations1 = [model1(x0)]
-for _ in range(N_predictions):
-    iterations1.append(model1(iterations1[-1]))
+#iterations1 = [model1(x0)]
+#for _ in range(N_predictions):
+#    iterations1.append(model1(iterations1[-1]))
 
-iterations2 = [model2(x0)]
-for _ in range(N_predictions):
-    iterations2.append(model2(iterations2[-1]))
+#iterations2 = [model2(x0)]
+#for _ in range(N_predictions):
+#    iterations2.append(model2(iterations2[-1]))
 
 iterations3 = [model3(x0)]
 for _ in range(N_predictions):
     iterations3.append(model3(iterations1[-1]))
 
 
-f = open("NN_HH_Prediction1.txt", "a")
-for i in iterations1:
-    for j in i.numpy():
-        f.write(str(j[0]))
-        f.write("\n")
-        f.write(str(j[1]))
-        f.write("\n")
-f.close()
 
-f = open("NN_HH_Prediction2.txt", "a")
-for i in iterations2:
-    for j in i.numpy():
-        f.write(str(j[0]))
-        f.write("\n")
-        f.write(str(j[1]))
-        f.write("\n")
-f.close()
+#f = open("NN_HH_Prediction1.txt", "a")
+#for i in iterations1:
+#    for j in i.numpy():
+#        f.write(str(j[0]))
+#        f.write("\n")
+#        f.write(str(j[1]))
+#        f.write("\n")
+#f.close()
+
+#f = open("NN_HH_Prediction2.txt", "a")
+#for i in iterations2:
+#    for j in i.numpy():
+#        f.write(str(j[0]))
+#        f.write("\n")
+#        f.write(str(j[1]))
+#        f.write("\n")
+#f.close()
+
+
 
 f = open("NN_HH_Prediction3.txt", "a")
 for i in iterations3:

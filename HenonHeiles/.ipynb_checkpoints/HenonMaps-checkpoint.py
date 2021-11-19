@@ -136,8 +136,8 @@ plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
 plt.title(r'Compositions of H\'enon Maps', fontsize = 30)
 
-plt.plot(history1R.history["loss"], label="Training loss $\mathbf{H}'_{H}$")
-plt.plot(history1R.history["val_loss"], label="Validation loss $\mathbf{H}'_{H}$")
+plt.plot(history1R.history["loss"], label="Training loss $\mathbf{H}_{R}^{\text{H\'enon}}$")
+plt.plot(history1R.history["val_loss"], label="Validation loss $\mathbf{H}_{R}^{\text{H\'enon}}$")
 
 #plt.plot(history1N.history["loss"], label="Training loss $\mathbf{H}_{20}^{\text{H\'enon}}$")
 #plt.plot(history1N.history["val_loss"], label="Validation loss $\mathbf{H}_{20}^{\text{H\'enon}}$")
@@ -162,8 +162,8 @@ plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
 plt.title(r'Compositions of H\'enon Maps', fontsize = 30)
 
-plt.plot(history2R.history["loss"], label="Training loss $\mathbf{H}'_{H}$")
-plt.plot(history2R.history["val_loss"], label="Validation loss $\mathbf{H}'_{H}$")
+plt.plot(history2R.history["loss"], label="Training loss $\mathbf{H}_{R, 50}^{\text{H\'enon}}$")
+plt.plot(history2R.history["val_loss"], label="Validation loss $\mathbf{H}_{R, 50}^{\text{H\'enon}}$")
 
 #plt.plot(history2N.history["loss"], label="Training loss $\mathbf{H}_{50}^{\text{H\'enon}}")
 #plt.plot(history2N.history["val_loss"], label="Validation loss $\mathbf{H}_{50}^{\text{H\'enon}}$")
