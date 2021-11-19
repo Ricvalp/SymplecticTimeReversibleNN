@@ -16,6 +16,7 @@ sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_opti
 #physical_devices = tf.config.list_physical_devices('GPU') 
 #tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
+
 Ename = "008333"
 
 #Import Data
@@ -23,7 +24,6 @@ x, y = hh.read_dataset('x_train_'+ Ename +'.txt', 'y_train_'+ Ename +'.txt')
 
 #Training Data
 train_dataset, val_dataset = hh.train_dataset(x, y, 10000, 50000, 10000) #val_len, train_batch, val_batch
-
 
 
 #Models
