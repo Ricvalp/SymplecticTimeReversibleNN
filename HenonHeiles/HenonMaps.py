@@ -13,7 +13,7 @@ from AllMethods import HenonHeiles_Methods as hh
 #gpu_options = tf.compat.v1.GPUOptions(per_process_gpu_memory_fraction=0.333)
 #sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(gpu_options=gpu_options))
 
-Ename = "008333"
+Ename = "01"
 
 x, y = hh.read_dataset('x_train_'+ Ename +'.txt', 'y_train_'+ Ename +'.txt')
 

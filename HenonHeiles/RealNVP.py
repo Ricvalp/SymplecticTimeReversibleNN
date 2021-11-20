@@ -22,7 +22,7 @@ from AllMethods import HenonHeiles_Methods as hh
 
 
 #E = 0.1
-Ename = "008333"
+Ename = "01"
 
 #Import Data
 x, y = hh.read_dataset('x_train_'+ Ename +'.txt', 'y_train_'+ Ename +'.txt')
@@ -429,14 +429,14 @@ for _ in range(N_predictions):
 #iterations3.append(model3(iterations1[-1]))
 
 
-f = open("RNN_HH_Prediction1.txt", "a")
-for i in iterations1:
-    for j in i.numpy():
-        f.write(str(j[0]))
-        f.write("\n")
-        f.write(str(j[1]))
-        f.write("\n")
-f.close()
+#f = open("RNN_HH_Prediction1.txt", "a")
+#for i in iterations1:
+#    for j in i.numpy():
+#        f.write(str(j[0]))
+#        f.write("\n")
+#        f.write(str(j[1]))
+#        f.write("\n")
+#f.close()
 
 f = open("RNN_HH_Prediction2.txt", "a")
 for i in iterations2:
@@ -447,11 +447,11 @@ for i in iterations2:
         f.write("\n")
 f.close()
 
-f = open("RNN_HH_Prediction3.txt", "a")
-for i in iterations3:
-    for j in i.numpy():
-        f.write(str(j[0]))
-        f.write("\n")
-        f.write(str(j[1]))
-        f.write("\n")
-f.close()
+#f = open("RNN_HH_Prediction3.txt", "a")
+#for i in iterations3:
+#    for j in i.numpy():
+#        f.write(str(j[0]))
+#        f.write("\n")
+#        f.write(str(j[1]))
+#        f.write("\n")
+#f.close()
