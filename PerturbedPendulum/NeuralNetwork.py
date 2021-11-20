@@ -297,7 +297,7 @@ x0 = np.array([[0.0, 0.1],[0.0, 0.2],[0.0, 0.3],[0.0, 0.4],[0.0, 0.5],[0.0, 0.6]
 
 iterations3 = [model3(x0)]
 for _ in range(N_predictions):
-    iterations3.append(model3(iterations1[-1]))
+    iterations3.append(model3(iterations3[-1]))
 
 
 # f = open("NN_PP_Prediction1.txt", "a")
