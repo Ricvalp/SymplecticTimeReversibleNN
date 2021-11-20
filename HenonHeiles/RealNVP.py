@@ -276,7 +276,7 @@ model2.compile(
 
 
 
-Epochs = 10000
+Epochs = 3000
 
 #history1 = model1.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_1], verbose=0)
 history2 = model2.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_2], verbose=0)

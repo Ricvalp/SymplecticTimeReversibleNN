@@ -1,0 +1,4 @@
+  File "/home/lcur0267/SymplecticTimeReversibleNN/HenonHeiles/NeuralNetwork.py", line 122
+    save_weights_only=True,
+IndentationError: unexpected indent
+srun: error: r30n2: task 0: Exited with exit code 1
