@@ -119,14 +119,14 @@ checkpoint_dir_3 = os.path.dirname(checkpoint_path_3)
 
 #Callbacks
 #cp_callback_1 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_1,
-                                                 save_weights_only=True,
-                                                 save_best_only=True,
-                                                 verbose=0)
+#                                                 save_weights_only=True,
+#                                                 save_best_only=True,
+#                                                 verbose=0)
 #Callbacks
 #cp_callback_2 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_2,
-                                                 save_weights_only=True,
-                                                 save_best_only=True,
-                                                 verbose=0)
+#                                                 save_weights_only=True,
+#                                                 save_best_only=True,
+#                                                 verbose=0)
 #Callbacks
 cp_callback_3 = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path_3,
                                                  save_weights_only=True,
@@ -172,7 +172,7 @@ plt.title(r'Feedforward Neural Network', fontsize = 30)
 #plt.plot(history2.history["loss"], label="Training loss $\mathbf{H}_{5}^{20}$")
 #plt.plot(history2.history["val_loss"], label="Validation loss $\mathbf{H}_{5}^{20}$")
 
-plt.plot(history3.history["loss"], label="Training loss $\mathbf{H}'_{NN}'$")
+plt.plot(history3.history["loss"], label="Training loss $\mathbf{H}'_{NN}$")
 plt.plot(history3.history["val_loss"], label="Validation loss $\mathbf{H}'_{NN}$")
 
 plt.xlabel(r'Epoch', fontsize=20)
@@ -301,7 +301,7 @@ x0 = np.array([[0.1, 0.0],[0.2, 0.0],[0.4, 0.0],[0.0, 0.05], [0.0, 0.1]])
 
 iterations3 = [model3(x0)]
 for _ in range(N_predictions):
-    iterations3.append(model3(iterations1[-1]))
+    iterations3.append(model3(iterations3[-1]))
 
 
 
