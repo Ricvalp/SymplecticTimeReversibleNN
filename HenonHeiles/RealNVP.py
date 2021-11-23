@@ -283,6 +283,20 @@ history2 = model2.fit(train_dataset, epochs = Epochs, validation_data=val_datase
 #history3 = model3.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_3], verbose=0)
 
 
+############## PRINT LOSS ##################
+
+f = open("HM_RNN_Loss.txt", "a")
+for i in history2.history["loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+f = open("HM_RNN_Val.txt", "a")
+for i in history2.history["val_loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
 
 
 ############## PLOT LOSS ##################
@@ -309,6 +323,7 @@ plt.yticks(fontsize=20)
 plt.legend(fontsize=17)
 plt.grid(axis='both', alpha=.3)
 plt.savefig("Loss_RNN_HH")
+
 
 
 ################ PLOT ITERATION ##############

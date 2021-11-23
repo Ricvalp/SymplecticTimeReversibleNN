@@ -129,6 +129,36 @@ history2R = model2R.fit(train_dataset, epochs = Epochs, validation_data=val_data
 #history1N2 = model1N2.fit(train_dataset, epochs = Epochs, validation_data=val_dataset, callbacks=[callback, cp_callback_1N2], verbose=0)
 
 
+
+############## PRINT LOSS 1 ##################
+
+f = open("HM_HH_Loss_1R.txt", "a")
+for i in history1R.history["loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+f = open("HM_HH_Val_1R.txt", "a")
+for i in history1R.history["val_loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+############## PRINT LOSS 2 ##################
+
+f = open("HM_HH_Loss_2R.txt", "a")
+for i in history2R.history["loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+f = open("HM_HH_Val_2R.txt", "a")
+for i in history2R.history["val_loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+
 ############## PLOT LOSS 1 ##################
 
 plt.figure(figsize = (13,6))

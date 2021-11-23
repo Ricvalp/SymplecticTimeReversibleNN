@@ -159,6 +159,21 @@ history3 = model3.fit(train_dataset, epochs = Epochs, validation_data=val_datase
 
 
 
+############## PRINT LOSS 1 ##################
+
+f = open("HM_NN_Loss.txt", "a")
+for i in history3.history["loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+f = open("HM_NN_Val.txt", "a")
+for i in history3.history["val_loss"]:
+        f.write(str(i))
+        f.write("\n")
+f.close()
+
+
 ############## PLOT LOSS ##################
 
 plt.figure(figsize = (13,6))
