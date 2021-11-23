@@ -22,7 +22,7 @@ x, y = pp.read_dataset('x_train.txt', 'y_train.txt')
 
 
 
-train_dataset, val_dataset = pp.train_dataset(x, y, 20, 1800, 20) #val_len, train_batch, val_batch
+train_dataset, val_dataset = pp.train_dataset(x, y, 20, 180, 20) #val_len, train_batch, val_batch
 
 
 #MLPs #####################
